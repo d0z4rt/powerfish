@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- La tête de la page. -->
+    <meta charset="utf-8" />
+    <title>PowerFish</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Honk&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/main.css" />
+  </head>
+  <body>
+    <!-- Le corps de la page. -->
+    <h1>My PowerFish!</h1>
+    <h2>
+      <span>ZQSD</span> / <span>WASD</span> / <span>Arrows</span> move |
+      <span>SHIFT</span> boost | <span>SPACE</span> shoot
+    </h2>
+    <h3>
+      hp: <span id="fish-life">100</span> | score:
+      <span id="score">0</span>
+    </h3>
+    <!-- Définition du poisson volant. -->
+    <div id="powerfish" class="bulles boost">
+      <img src="./assets/fish.png" alt="PowerFish" />
+    </div>
+
+    <!-- BUBBLES -->
+    <div id="bubbles-container"></div>
+
+    <!-- ENEMIES -->
+    <div id="enemies-container"></div>
+
+    <!-- PROJECTILES -->
+    <div id="projectiles-container"></div>
+
+    <!-- GAME OVER SCREEN -->
+    <div id="game-over"></div>
+
+    <!-- Scrip import, no need to use defer since modules are already deferred -->
+    <script type="module" src="./assets/main.mjs"></script>
+  </body>
+</html>

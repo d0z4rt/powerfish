@@ -1,0 +1,240 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-image: linear-gradient(0deg, #182848, #2980b9);
+  overflow: hidden;
+}
+
+h1 {
+  font-family: "Honk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  text-align: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 1rem 0;
+  font-size: 3rem;
+}
+h2 {
+  font-size: 0.7rem;
+  font-family: monospace;
+  text-align: center;
+  color: #fff;
+  margin: 0;
+  font-weight: 400;
+  box-sizing: border-box;
+  padding: 0.6rem;
+}
+
+h3 {
+  position: absolute;
+  font-family: monospace;
+  text-align: center;
+  color: #fff;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+span {
+  border: 1px solid #fff;
+  padding: 0.2rem 0.5ch;
+  border-radius: 3px;
+}
+
+#powerfish {
+  position: absolute;
+  width: 150px;
+  height: 100px;
+  /* transition: top 0.3s ease, left 0.3s ease; */
+  transition: transform 0.25s ease-out;
+  z-index: 2;
+}
+
+#powerfish img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/*
+Using ::after to be able to postion the background
+*/
+#powerfish.bulles::after {
+  position: absolute;
+  top: 0px;
+  left: -10px;
+  display: flex;
+  content: "";
+  width: 150px;
+  height: 100px;
+  background: url("./bubbles.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1s ease-out 2s;
+}
+#powerfish.bulles-visible::after {
+  opacity: 1;
+  transition: opacity 0s;
+}
+
+#powerfish.boost::before {
+  position: absolute;
+  top: -40px;
+  left: 128px;
+  display: flex;
+  content: "";
+  width: 150px;
+  height: 200px;
+  transform: rotate(90deg);
+  background: url("./boost.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#powerfish.right {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+#powerfish.up {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+#powerfish.down {
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+#powerfish.left-up {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+#powerfish.left-down {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+#powerfish.right-up {
+  -webkit-transform: scaleX(-1) rotate(45deg);
+  transform: scaleX(-1) rotate(45deg);
+}
+#powerfish.right-down {
+  -webkit-transform: scaleX(-1) rotate(-45deg);
+  transform: scaleX(-1) rotate(-45deg);
+}
+#powerfish.teabag {
+  -webkit-transform: scaleY(0.7);
+  transform: scaleY(0.7);
+}
+
+#powerfish.flip.teabag {
+  -webkit-transform: scaleY(0.7) scaleX(-1);
+  transform: scaleY(0.7) scaleX(-1);
+}
+
+/* 
+projectiles
+*/
+
+#projectiles-container {
+  width: 100%;
+  height: 100%;
+}
+
+.projectile {
+  position: absolute;
+  z-index: 1;
+  background-color: red;
+  height: 5px;
+  width: 5px;
+}
+
+/* 
+enemies
+*/
+
+#enemies-container {
+  width: 100%;
+  height: 100%;
+}
+
+.enemy {
+  position: absolute;
+  z-index: 1;
+  background-image: url("./enemy.png");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: monospace;
+}
+
+/* 
+Bubble effect in the background 
+*/
+
+#bubbles-container {
+  width: 100%;
+  height: 100%;
+}
+
+.bubble {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  position: absolute;
+  background: radial-gradient(
+    circle at top,
+    #e6fcff,
+    #81e8f6 5%,
+    #76deef 10%,
+    #055194 60%,
+    #06274500 80%,
+    #e6fcff 100%
+  );
+  bottom: -30px;
+  animation: bubble 15s ease-in-out infinite,
+    sideWays 4s ease-in-out infinite alternate;
+}
+
+@keyframes bubble {
+  0% {
+    transform: translateY(0%);
+    opacity: 0.06;
+  }
+  100% {
+    transform: translateY(-120vh);
+  }
+}
+
+@keyframes sideWays {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 200px;
+  }
+}
+
+/* GAME OVER SCREEN */
+
+#game-over {
+  position: absolute;
+  display: none;
+  inset: 0;
+  z-index: 10;
+  flex-direction: column;
+  justify-content: center;
+
+  background-image: linear-gradient(0deg, #182848, #2980b9);
+}
+
+#game-over h2 {
+  font-size: 1rem;
+}
