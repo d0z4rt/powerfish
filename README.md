@@ -1,6 +1,6 @@
 # POWERFISH
 
-Jeu basique d'entrainement JS
+Jeu basique d'entrainement JS, version live : https://d0z4rt.github.io/powerfish/
 
 Se base sur une partie HTML qui se compose de conteneurs pour accueillir des éléments controlés et générés en JavaScript.
 
